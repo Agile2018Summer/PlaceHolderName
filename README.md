@@ -1,37 +1,35 @@
-# PlaceHolderName
-A place holder that will get renamed when we figure out what we are making.
+# Team Name: Sprinters
+
+# Product: Trello - Slack Integrator
 
 ## Team Roster
 
 Team Member | Role(s) on Team
 ------------ | -------------
-Raghavan Arvindh | PLACEHOLDER
-Richard Freimer | PLACEHOLDER
-Vishnu Singh | PLACEHOLDER
-Zijian Wang | PLACEHOLDER
+Richard Freimer | Product Owner, Development Team Member
+Zijian Wang | Scrum Master, Development Team Member
+Raghavan Arvindh | Development Team Member
+Vishnu Singh | Development Team Member
 
 ## Far Vision
 
-PLACEHOLDER
+Making the communication for development teams easier.
 
 ## Near Vision
 
-PLACEHOLDER
+Making it easier for slack groups to operate.
 
 ## Stakeholders
 
-- PLACEHOLDER
-- PLACEHOLDER
-- PLACEHOLDER
-
-#### PLACEHOLDER
-
-PLACEHOLDER
+- Professors (Teaching classes in the field of agile)
+- Scrum Teams in software companies
+- Students in an Agile Course
+- Managers in miscellaneous organizations who hope to employ agile practices to their projects.
 
 -----
-## Real Stakeholder: PLACEHOLDER
+## Real Stakeholder: Richard Kasperowski
 
-### Persona of PLACEHOLDER
+### Persona of Richard Kasperowski
 
 PLACEHOLDER
 
@@ -59,4 +57,4 @@ PLACEHOLDER
 
 
 -----
-Only Development Team members participated in creating the estimates for the Product Backlock Items.
+Only Development Team members participated in creating the estimates for the Product Backlock Items, as all members of the Scrum Team are part of the Development Team.
