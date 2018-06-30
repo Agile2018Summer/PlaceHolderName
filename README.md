@@ -35,14 +35,14 @@ PLACEHOLDER
 
 -----
 
-[Project Backlog](https://github.com/Agile2018Summer/PlaceHolderName/projects/1)
+[Project Backlog](https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/1)
 
 
 -----
 
 ## Backlog order reasoning
 
-PLACEHOLDER
+The project backlog is ordered in such a way that it should minimize the additional work needed when addressing the PBIs that have a lower priority.
 
 
 ## Definition of Ready
@@ -51,10 +51,7 @@ PLACEHOLDER
 
 -----
 
-### Whole Team Relative Size Estimating Activity: PLACEHOLDER
-
-
-
+#### Whole Team Relative Size Estimating Activity: Planning Poker
 
 -----
 Only Development Team members participated in creating the estimates for the Product Backlock Items, as all members of the Scrum Team are part of the Development Team.
