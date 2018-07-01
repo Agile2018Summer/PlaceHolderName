@@ -7,9 +7,10 @@
 Team Member | Role(s) on Team
 ------------ | -------------
 Richard Freimer | Product Owner, Development Team Member
-Zijian Wang | Scrum Master, Development Team Member
+Vishnu Vijay Singh | Scrum Master, Development Team Member
+Zijian Wang | Development Team Member
 Raghavan Arvindh | Development Team Member
-Vishnu Singh | Development Team Member
+
 
 ## Far Vision
 
