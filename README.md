@@ -32,12 +32,11 @@ Making it easier for slack groups to operate.
 
 ### Persona of Richard Kasperowski
 
-PLACEHOLDER
+![User Persona Alt Text](https://raw.githubusercontent.com/Agile2018Summer/Trello-Slack-Integration/master/user%20persona.png)
 
 -----
 
 [Project Backlog](https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/1)
-
 
 -----
 
