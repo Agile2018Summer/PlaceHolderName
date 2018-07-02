@@ -34,9 +34,11 @@ Making it easier for slack groups to operate.
 
 ![User Persona Alt Text](https://raw.githubusercontent.com/Agile2018Summer/Trello-Slack-Integration/master/user%20persona.png)
 
+User Persona can be found at https://app.xtensio.com/n0dvk7ej
+
 -----
 
-[Project Backlog](https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/1)
+[Product Backlog](https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/1)
 
 -----
 
