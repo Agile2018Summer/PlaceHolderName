@@ -38,7 +38,7 @@ User Persona can be found at https://app.xtensio.com/n0dvk7ej
 
 -----
 
-[Product Backlog](https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/1)
+## [Product Backlog](https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/1)
 
 -----
 
@@ -49,7 +49,13 @@ The project backlog is ordered in such a way that it should minimize the additio
 
 ## Definition of Ready
 
-PLACEHOLDER
+1) We have a self-explanatory title for every Item in the backlog.
+2) We have clear user stories .
+3) We have a good metric of estimating each story
+3) We are aware of what tools are necessary to develope the item.
+4) The team agrees  on a common definition of done.
+5) We  have an optimally organized backlog.
+
 
 -----
 
