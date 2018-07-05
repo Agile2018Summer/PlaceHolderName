@@ -77,4 +77,6 @@ We divided the total story points into 3 (3 sprint).
 https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/2 
 #### One daily scrum report
 https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/Dailyscrum180703.md
+#### Unit tests folder
+https://github.com/Agile2018Summer/Trello-Slack-Integration/tree/master/src/test/java/edu/harvard/integration
 
