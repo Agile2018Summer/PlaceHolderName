@@ -29,13 +29,15 @@ public class TrelloConnectTest {
     }
 
     @Test
-    public void getBoardListTest(){
+    public void getUserBoardsTest(){
         String url = "https://api.trello.com/1/members/me/boards?key=" + key +
                 "&token=" + token;
         TrelloConnection c = new TrelloConnection(token, key);
         String res = c.getPageSource(url);
-        JSONArray map = (JSONArray) JSONHandler.Json2Map(res);
-        System.out.println(map);
+        JSONArray maps = (JSONArray) JSONHandler.Json2Map(res);
+        for(Object map : maps){
+            System.out.println(map);
+        }
     }
 
     @Test
@@ -48,10 +50,27 @@ public class TrelloConnectTest {
     }
 
     @Test
+    public void getBoardListsTest(){
+        String id = "58cec57600cd9fee6e35bad9";
+        List<Map<String, Object>> res = BoardUtils.getBoardLists(id);
+        for(Map<String, Object> map : res){
+            System.out.println(map);
+        }
+    }
+
+    @Test
     public void getCardContentTest(){
         String id = "58cec57700cd9fee6e35baf7";
         Map<String, Object> res = CardUtils.getCardContent(id);
         System.out.println(res);
     }
 
+    @Test
+    public void geListContentTest(){
+        String id = "58cec57600cd9fee6e35bada";
+        List<Map<String, Object>> res = ListUtils.getListContent(id);
+        for(Map<String, Object> map : res){
+            System.out.println(map);
+        }
+    }
 }
