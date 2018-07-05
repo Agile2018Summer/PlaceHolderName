@@ -64,3 +64,11 @@ The project backlog is ordered in such a way that it should minimize the additio
 
 -----
 Only Development Team members participated in creating the estimates for the Product Backlock Items, as all members of the Scrum Team are part of the Development Team.
+
+
+
+## Project part 2: first sprint:
+
+Forecast of how many story points can be delivered within a sprint is 13
+Rational behind it is dividing the total story points into 3 (3 sprint)
+Sprint backlog https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/2 
