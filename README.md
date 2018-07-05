@@ -69,6 +69,12 @@ Only Development Team members participated in creating the estimates for the Pro
 
 ## Project part 2: first sprint:
 
-Forecast of how many story points can be delivered within a sprint is 13.
-Rational behind it is dividing the total story points into 3 (3 sprint).
-Sprint backlog https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/2 
+#### Forecast of how many story points can be delivered within a sprint 
+13.
+#### Rational behind it 
+We divided the total story points into 3 (3 sprint).
+#### Sprint backlog
+https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/2 
+#### One daily scrum report
+https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/Dailyscrum180703.md
+
