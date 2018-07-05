@@ -24,7 +24,7 @@ Making it easier for slack groups to operate.
 ## Stakeholders
 
 - Professors (Teaching classes in the field of agile)
-- Scrum Teams in software companies
+- Scrum Teams in software companies (Ex. Product Owner, Scrum Master, Development team members)
 - Students in an Agile Course
 - Managers in miscellaneous organizations who hope to employ agile practices to their projects.
 
