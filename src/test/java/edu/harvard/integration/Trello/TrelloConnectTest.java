@@ -1,8 +1,7 @@
 package edu.harvard.integration.Trello;
 
+import com.github.cliftonlabs.json_simple.JsonArray;
 import edu.harvard.integration.JSONHandler;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.junit.Test;
 
 import java.util.List;
@@ -34,7 +33,7 @@ public class TrelloConnectTest {
                 "&token=" + token;
         TrelloConnection c = new TrelloConnection(token, key);
         String res = c.getPageSource(url);
-        JSONArray maps = (JSONArray) JSONHandler.Json2Map(res);
+        JsonArray maps = (JsonArray) JSONHandler.Json2Map(res);
         for(Object map : maps){
             System.out.println(map);
         }

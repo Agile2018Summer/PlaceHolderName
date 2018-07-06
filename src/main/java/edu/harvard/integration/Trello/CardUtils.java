@@ -1,8 +1,7 @@
 package edu.harvard.integration.Trello;
 
+import com.github.cliftonlabs.json_simple.JsonObject;
 import edu.harvard.integration.JSONHandler;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,8 +13,8 @@ public class CardUtils {
         TrelloConnection c = new TrelloConnection();
         String url = "https://api.trello.com/1/cards/" + id + "?fields=all";
         String resp = c.getPageSource(url);
-        JSONObject res = (JSONObject) JSONHandler.Json2Map(resp);
-        return filterInfo((Map<String, Object>) res);
+        JsonObject res = (JsonObject) JSONHandler.Json2Map(resp);
+        return filterInfo(res);
     }
 
     private static Map<String, Object> filterInfo(Map<String, Object> cardItem){

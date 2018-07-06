@@ -1,6 +1,6 @@
 package edu.harvard.integration.Trello;
 
-import org.json.simple.JSONArray;
+import com.github.cliftonlabs.json_simple.JsonArray;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Commons {
-    public static List<Map<String, Object>> getInfo(JSONArray arr){
+    public static List<Map<String, Object>> getInfo(JsonArray arr){
         List<Map<String, Object>> res = new ArrayList<Map<String, Object>>();
         for (Object aList : arr) {
             Map<String, Object> item = (Map<String, Object>) aList;

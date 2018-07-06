@@ -1,7 +1,7 @@
 package edu.harvard.integration.Trello;
 
+import com.github.cliftonlabs.json_simple.JsonArray;
 import edu.harvard.integration.JSONHandler;
-import org.json.simple.JSONArray;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ public class BoardUtils {
         TrelloConnection c = new TrelloConnection();
         String url = "https://api.trello.com/1/boards/" + id + "/cards";
         String resp = c.getPageSource(url);
-        JSONArray list = (JSONArray) JSONHandler.Json2Map(resp);
+        JsonArray list = (JsonArray) JSONHandler.Json2Map(resp);
         List<Map<String, Object>> res = Commons.getInfo(list);
         return res;
     }
@@ -22,7 +22,7 @@ public class BoardUtils {
         TrelloConnection c = new TrelloConnection();
         String url = "https://api.trello.com/1/boards/" + id + "/lists";
         String resp = c.getPageSource(url);
-        JSONArray list = (JSONArray) JSONHandler.Json2Map(resp);
+        JsonArray list = (JsonArray) JSONHandler.Json2Map(resp);
         List<Map<String, Object>> res = Commons.getInfo(list);
         return res;
     }

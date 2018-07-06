@@ -1,7 +1,6 @@
 package edu.harvard.integration.Trello;
 
 import edu.harvard.integration.JSONHandler;
-import org.json.simple.JSONArray;
 
 import java.io.BufferedReader;
 import java.io.IOException;
