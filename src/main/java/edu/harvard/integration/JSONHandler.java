@@ -6,15 +6,9 @@ import com.github.cliftonlabs.json_simple.Jsoner;
 
 public class JSONHandler {
     public static Object Json2Map(String json){
+        JsonArray arr = Jsoner.deserialize(json, new JsonArray());
+        if(!arr.isEmpty()) return arr;
         return Jsoner.deserialize(json, new JsonObject());
-        /*try {
-            JSONParser parser = new JSONParser();
-            return parser.parse(json);
-        } catch (ParseException e) {
-            System.err.println("(ERROR) Parsing JSON String error. String: "
-                    + json);
-            return null;
-        }*/
     }
 
     public static String Map2Json(JsonObject map) {

@@ -3,8 +3,6 @@ package edu.harvard.integration.Trello;
 import com.github.cliftonlabs.json_simple.JsonArray;
 import edu.harvard.integration.JSONHandler;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
