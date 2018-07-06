@@ -22,8 +22,7 @@ public class TrelloConnectTest {
     public void testConnection(){
         String url = "https://api.trello.com/1/members/me/boards?key=" + key +
                 "&token=" + token;
-        TrelloConnection c = new TrelloConnection(token, key);
-        String res = c.getPageSource(url);
+        String res = Commons.getPageSource(url);
         System.out.println(res);
     }
 
@@ -31,8 +30,7 @@ public class TrelloConnectTest {
     public void getUserBoardsTest(){
         String url = "https://api.trello.com/1/members/me/boards?key=" + key +
                 "&token=" + token;
-        TrelloConnection c = new TrelloConnection(token, key);
-        String res = c.getPageSource(url);
+        String res = Commons.getPageSource(url);
         JsonArray maps = (JsonArray) JSONHandler.Json2Map(res);
         for(Object map : maps){
             System.out.println(map);
@@ -71,5 +69,12 @@ public class TrelloConnectTest {
         for(Map<String, Object> map : res){
             System.out.println(map);
         }
+    }
+
+    @Test
+    public void testTrackTrelloBoards(){
+        TrelloConnection c = new TrelloConnection(token, key);
+        List<Map<String, String>> list = c.trackAllBoards();
+        for(Map<String, String> m : list) System.out.println(m);
     }
 }

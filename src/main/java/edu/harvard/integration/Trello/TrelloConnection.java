@@ -1,5 +1,6 @@
 package edu.harvard.integration.Trello;
 
+import com.github.cliftonlabs.json_simple.JsonArray;
 import edu.harvard.integration.JSONHandler;
 
 import java.io.BufferedReader;
@@ -13,18 +14,16 @@ import java.util.List;
 import java.util.Map;
 
 public class TrelloConnection {
-    private String token;
-    private String key;
+    private String token = "";
+    private String key = "";
 
-    public TrelloConnection(String token, String key){
+    TrelloConnection(String token, String key) {
         this.token = token;
         this.key = key;
     }
 
-    public TrelloConnection(){}
-
     public static String sendGet(String url, String param) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         BufferedReader in = null;
         try {
             String urlName = url + "?" + param;
@@ -49,14 +48,12 @@ public class TrelloConnection {
                     new InputStreamReader(conn.getInputStream()));
             String line;
             while ((line = in.readLine()) != null) {
-                result += "/n" + line;
+                result.append("/n").append(line);
             }
         } catch (Exception e) {
             System.out.println("Get request sent exception." + e);
             e.printStackTrace();
-        }
-
-        finally {
+        } finally {
             try {
                 if (in != null) {
                     in.close();
@@ -65,29 +62,21 @@ public class TrelloConnection {
                 ex.printStackTrace();
             }
         }
+        return result.toString();
+    }
+
+    List<Map<String, String>> trackAllBoards() {
+        List<Map<String, String>> result = new ArrayList<>();
+        String url = "https://api.trello.com/1/members/me/boards?key=" + key +
+                "&token=" + token;
+        String info = Commons.getPageSource(url);
+        JsonArray maps = (JsonArray) JSONHandler.Json2Map(info);
+        for (Object map : maps) {
+            Map<String, String> m = new HashMap<>();
+            m.put("id", ((Map<String, String>) map).get("id"));
+            m.put("name", ((Map<String, String>) map).get("name"));
+            result.add(m);
+        }
         return result;
     }
-
-    public String getPageSource(String pageUrl) {
-        StringBuilder sb = new StringBuilder();
-        try {
-            URL url = new URL(pageUrl);
-            String encoding = "UTF-8";
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(url
-                    .openStream(), encoding));
-            String line;
-
-            while ((line = in.readLine()) != null) {
-                sb.append(line);
-                sb.append("\n");
-            }
-            in.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return sb.toString();
-    }
-
-
 }

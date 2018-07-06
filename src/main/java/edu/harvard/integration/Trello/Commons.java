@@ -2,6 +2,9 @@ package edu.harvard.integration.Trello;
 
 import com.github.cliftonlabs.json_simple.JsonArray;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,5 +21,26 @@ public class Commons {
             res.add(map);
         }
         return res;
+    }
+
+    public static String getPageSource(String pageUrl) {
+        StringBuilder sb = new StringBuilder();
+        try {
+            URL url = new URL(pageUrl);
+            String encoding = "UTF-8";
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(url
+                    .openStream(), encoding));
+            String line;
+
+            while ((line = in.readLine()) != null) {
+                sb.append(line);
+                sb.append("\n");
+            }
+            in.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return sb.toString();
     }
 }
