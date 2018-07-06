@@ -24,7 +24,7 @@ Making it easier for slack groups to operate.
 ## Stakeholders
 
 - Professors (Teaching classes in the field of agile)
-- Scrum Teams in software companies
+- Scrum Teams in software companies (Ex. Product Owner, Scrum Master, Development team members)
 - Students in an Agile Course
 - Managers in miscellaneous organizations who hope to employ agile practices to their projects.
 
@@ -79,4 +79,19 @@ https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/2
 https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/Dailyscrum180703.md
 #### Unit tests folder
 https://github.com/Agile2018Summer/Trello-Slack-Integration/tree/master/src/test/java/edu/harvard/integration
+## Retrospective
+What went wrong
+1- Team meetings timing were not well ogenised,
+2- Testing integrated code was challenges
+3- Underestimating the project
+
+What went right
+1- Daily scrum conducte
+2- Research is done
+3- Backlog is updated
+4- Linking tasks with stories in the backlog
+
+Who to improve:
+1- Agree on fixed times for team meeting
+2- Make a more realistic estimation
 
