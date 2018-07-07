@@ -4,7 +4,6 @@ import edu.harvard.integration.Config;
 import edu.harvard.integration.Integrator;
 import edu.harvard.integration.api.Integration;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -28,7 +27,7 @@ public class TrelloIntegration implements Integration {
         if (connect())
             Integrator.getLogger().info("Connected to Trello.");
         else
-            Integrator.getLogger().error("Failed to connect to trello.");
+            Integrator.getLogger().error("Failed to connect to Trello.");
     }
 
     /**

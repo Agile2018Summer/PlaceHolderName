@@ -43,6 +43,11 @@ public class Config extends Properties {
             if (!containsKey("INFO_CHANNEL"))
                 setProperty("INFO_CHANNEL", "info_channel");
 
+            if (!containsKey("TRELLO_TOKEN"))
+                setProperty("TRELLO_TOKEN", "trello_token");
+            if (!containsKey("TRELLO_KEY"))
+                setProperty("TRELLO_KEY", "trello_key");
+
             store(output, null);
         } catch (IOException io) {
             io.printStackTrace();
