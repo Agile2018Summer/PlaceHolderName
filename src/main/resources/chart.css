@@ -1,0 +1,15 @@
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.chart-series-line {
+    -fx-stroke: black;
+    -fx-stroke-dash-array: 12;
+}
+
+.chart-bar-background {
+    -fx-background-color: transparent;
+}
+.chart-bar {
+    -fx-bar-fill: aqua;
+}
