@@ -77,4 +77,12 @@ public class TrelloConnectTest {
         List<Map<String, String>> list = c.trackAllBoards();
         for(Map<String, String> m : list) System.out.println(m);
     }
+
+    @Test
+    public void getTrelloInfoByListTest(){
+        TrelloIntegration g = new TrelloIntegration(key, token);
+        List<Map<String, Object>> infoList
+                = g.getInfoByList("Harvard CSCI S-71 Course Backlog", "Course backlog");
+        for(Map<String, Object> m : infoList) System.out.println(m);
+    }
 }

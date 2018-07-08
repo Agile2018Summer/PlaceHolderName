@@ -1,0 +1,6 @@
+language: java
+
+script: "mvn install"
+
+notifications:
+  email: false
