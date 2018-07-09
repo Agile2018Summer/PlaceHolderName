@@ -78,29 +78,35 @@ public class TrelloIntegration implements Integration {
     }
 
     /**
-     * Get trello information by board name and list (in progress, done, etc).
+     * Get trello information by board name and list name (in progress, done, etc).
      */
     public List<Map<String, Object>> getInfoByList(String boardName, String listName){
-        List<Map<String, String>> boards = this.getAllTrelloBoards();
-        for(Map<String, String> board : boards){
-            if(board.get("name").equals(boardName)){
-                String boardId = board.get("id");
-                List<Map<String, Object>> lists = BoardUtils.getBoardLists(boardId);
-                if(lists == null || lists.size() == 0){
-                    Integrator.getLogger().error("Cannot find a list with given name.");
-                    return null;
-                }
-                for(Map<String, Object> list : lists){
-                    if(list.get("name").equals(listName)){
-                        return ListUtils.getListContent((String) list.get("id"));
-                    }
-                }
-                Integrator.getLogger().error("Cannot find a list with given name.");
-                return null;
-            }
+        String boardId = BoardUtils.getBoardIdByName(this.token, this.key, boardName);
+        if(boardId == null){
+            Integrator.getLogger().error("Cannot find a board with given name.");
+            return null;
         }
-        Integrator.getLogger().error("Cannot find a board with given name.");
-        return null;
+        String listId = ListUtils.getListIdByName(boardId, listName);
+        if(listId == null){
+            Integrator.getLogger().error("Cannot find a list with given name.");
+            return null;
+        }
+        return ListUtils.getListContent(listId);
+    }
+
+    /**
+     * Get all PBIs no matter their status and list, given a board name.
+     */
+    public List<Map<String, Object>> getAllPBIs(String boardName){
+        String boardId = BoardUtils.getBoardIdByName(this.token, this.key, boardName);
+        List<Map<String, Object>> cardsInfo = BoardUtils.getBoardContent(boardId);
+        List<Map<String, Object>> result = new ArrayList<>();
+        for(Map<String, Object> card : cardsInfo){
+            String cardId = (String) card.get("id");
+            Map<String, Object> cardDetail = CardUtils.getCardContent(cardId);
+            result.add(cardDetail);
+        }
+        return result;
     }
 
     /**

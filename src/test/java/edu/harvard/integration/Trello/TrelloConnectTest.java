@@ -1,6 +1,7 @@
 package edu.harvard.integration.Trello;
 
 import com.github.cliftonlabs.json_simple.JsonArray;
+import com.github.cliftonlabs.json_simple.JsonObject;
 import edu.harvard.integration.JSONHandler;
 import org.junit.Test;
 
@@ -84,5 +85,36 @@ public class TrelloConnectTest {
         List<Map<String, Object>> infoList
                 = g.getInfoByList("Harvard CSCI S-71 Course Backlog", "Course backlog");
         for(Map<String, Object> m : infoList) System.out.println(m);
+    }
+
+    @Test
+    public void testGetAllPBIs(){
+        TrelloIntegration g = new TrelloIntegration(key, token);
+        List<Map<String, Object>> res = g.getAllPBIs("Harvard CSCI S-71 Course Backlog");
+        assertEquals(res.size(), 24);
+    }
+
+    @Test
+    public void testGetInfo(){
+        JsonObject test = (JsonObject) JSONHandler.Json2Map("{\"name\":\"(1) Retrospectives\", " +
+                "\"id\":\"58cec57700cd9fee6e35baf2\"}");
+        JsonArray jarr = new JsonArray();
+        jarr.add(test);
+        List<Map<String, Object>> arr = Commons.getInfo(jarr);
+        assertEquals("1", (String) (arr.get(0).get("pts")));
+        assertEquals("Retrospectives", (String) (arr.get(0).get("name")));
+    }
+
+    @Test
+    public void testGetInfo2(){
+        JsonObject test = (JsonObject) JSONHandler.Json2Map(
+                "{\"name\":\"(2) Continuous Integration, Continuous Delivery, and DevOps\", " +
+                "\"id\":\"58cec57700cd9fee6e35baf2\"}");
+        JsonArray jarr = new JsonArray();
+        jarr.add(test);
+        List<Map<String, Object>> arr = Commons.getInfo(jarr);
+        assertEquals("2", (String) (arr.get(0).get("pts")));
+        assertEquals("Continuous Integration, Continuous Delivery, and DevOps",
+                (String) (arr.get(0).get("name")));
     }
 }
