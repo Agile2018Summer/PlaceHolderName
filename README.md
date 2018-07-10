@@ -97,5 +97,10 @@ Who to improve:
 
 ## Project part 3: Second Sprint:
 
+#### Forecast of how many story points can be delivered within a sprint 
+11.
+#### Rational behind it 
+According to the process in last sprint.
+
 ### Daily Scrum Report
 https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/Dailyscrum180708.md
