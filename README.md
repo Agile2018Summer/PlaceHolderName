@@ -95,3 +95,33 @@ Who to improve:
 1- Agree on fixed times for team meeting
 2- Make a more realistic estimation
 
+## Project part 3: Second Sprint:
+
+#### Forecast of how many story points can be delivered within a sprint 
+11.
+#### Rational behind it 
+According to the process in last sprint.
+
+#### Sprint backlog
+https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/3
+
+#### Daily Scrum Report
+https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/Dailyscrum180708.md
+
+#### Unit tests folder
+https://github.com/Agile2018Summer/Trello-Slack-Integration/tree/master/src/test/java/edu/harvard/integration
+
+## Retrospective
+What went wrong
+1. Too few mob programming actions.
+2. Unit test highly dependent on internet connection.
+3. Time table for all members not synchronized well.
+4. When developing, often forget to symmetrically update on backlogs.
+
+What went right
+1. Daily scrum conducte
+2. Finish some of PBIs.
+
+Who to improve:
+1. Ensure that there is one daily scrum every day.
+2. Pay more attention on backlogs rather than just coding.
