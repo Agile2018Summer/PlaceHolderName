@@ -12,7 +12,9 @@ public class CardUtils {
         String url = "https://api.trello.com/1/cards/" + id + "?fields=all";
         String resp = Commons.getPageSource(url);
         JsonObject res = (JsonObject) JSONHandler.Json2Map(resp);
-        return filterInfo(res);
+        Map<String, Object> cardInfo = filterInfo(res);
+        cardInfo.put("list_name", CardUtils.getListNameByCard(id));
+        return cardInfo;
     }
 
     private static Map<String, Object> filterInfo(Map<String, Object> cardItem){
