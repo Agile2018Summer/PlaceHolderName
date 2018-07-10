@@ -95,3 +95,7 @@ Who to improve:
 1- Agree on fixed times for team meeting
 2- Make a more realistic estimation
 
+## Project part 3: Second Sprint:
+
+### Daily Scrum Report
+https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/Dailyscrum180708.md
