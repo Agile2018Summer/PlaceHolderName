@@ -23,4 +23,11 @@ public class CardUtils {
         res.put("labels", cardItem.get("labels"));
         return res;
     }
+
+    public static String getListNameByCard(String cardId){
+        String url = "https://api.trello.com/1/cards/" + cardId + "/list";
+        String resp = Commons.getPageSource(url);
+        JsonObject res = (JsonObject) JSONHandler.Json2Map(resp);
+        return (String) res.get("name");
+    }
 }

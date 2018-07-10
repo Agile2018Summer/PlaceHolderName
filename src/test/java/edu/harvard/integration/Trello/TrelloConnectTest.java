@@ -91,6 +91,7 @@ public class TrelloConnectTest {
     public void testGetAllPBIs(){
         TrelloIntegration g = new TrelloIntegration(key, token);
         List<Map<String, Object>> res = g.getAllPBIs("Harvard CSCI S-71 Course Backlog");
+        System.out.println(res.get(0).toString());
         assertEquals(res.size(), 24);
     }
 
@@ -116,5 +117,12 @@ public class TrelloConnectTest {
         assertEquals("2", (String) (arr.get(0).get("pts")));
         assertEquals("Continuous Integration, Continuous Delivery, and DevOps",
                 (String) (arr.get(0).get("name")));
+    }
+
+    @Test
+    public void testGetListNameByCard(){
+        String cardId = "58cec57700cd9fee6e35baf7";
+        String listName = CardUtils.getListNameByCard(cardId);
+        assertEquals(listName, "Done today");
     }
 }
