@@ -77,4 +77,29 @@ public class Commons {
         return "Name: " + name + "\nStory points: " + pts + "\nBelongs to list: " +
                 list + "\nDue at: " + due + "\n\n";
     }
+
+    public static String concatArr(String[] arr){
+        if(arr.length == 0) return "";
+        StringBuilder sb = new StringBuilder();
+        for(String s : arr){
+            sb.append(s);
+            sb.append(' ');
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        return sb.toString();
+    }
+
+    public static List<Map<String, Object>> getCardsDetails(List<Map<String, Object>> cardsInfo){
+        List<Map<String, Object>> result = new ArrayList<>();
+        for(Map<String, Object> card : cardsInfo){
+            String cardId = (String) card.get("id");
+            Map<String, Object> cardDetail = CardUtils.getCardContent(cardId);
+            String cardName = (String) cardDetail.get("name");
+            String[] pattern = Commons.extractPts(cardName);
+            cardDetail.put("pts", pattern[0]);
+            cardDetail.put("name", pattern[1]);
+            result.add(cardDetail);
+        }
+        return result;
+    }
 }

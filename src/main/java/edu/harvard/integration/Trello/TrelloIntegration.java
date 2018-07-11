@@ -99,16 +99,7 @@ public class TrelloIntegration implements Integration {
     public static List<Map<String, Object>> getAllPBIs(String boardName, String token, String key){
         String boardId = BoardUtils.getBoardIdByName(token, key, boardName);
         List<Map<String, Object>> cardsInfo = BoardUtils.getBoardContent(boardId);
-        List<Map<String, Object>> result = new ArrayList<>();
-        for(Map<String, Object> card : cardsInfo){
-            String cardId = (String) card.get("id");
-            Map<String, Object> cardDetail = CardUtils.getCardContent(cardId);
-            String cardName = (String) cardDetail.get("name");
-            String[] pattern = Commons.extractPts(cardName);
-            cardDetail.put("pts", pattern[0]);
-            cardDetail.put("name", pattern[1]);
-            result.add(cardDetail);
-        }
+        List<Map<String, Object>> result = Commons.getCardsDetails(cardsInfo);
         return result;
     }
 

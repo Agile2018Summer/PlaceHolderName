@@ -123,6 +123,14 @@ public class TrelloConnectTest {
     public void testGetListNameByCard(){
         String cardId = "58cec57700cd9fee6e35baf7";
         String listName = CardUtils.getListNameByCard(cardId);
-        assertEquals(listName, "Done today");
+        assertEquals(listName, "Done this semester");
+    }
+
+    @Test
+    public void testGetBoardIdByName(){
+        String boardId =
+                BoardUtils.getBoardIdByName(token, key,
+                        "Harvard CSCI S-71 Course Backlog");
+        assertEquals("58cec57600cd9fee6e35bad9", boardId);
     }
 }
