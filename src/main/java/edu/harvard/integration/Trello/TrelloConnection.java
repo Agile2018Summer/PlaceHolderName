@@ -65,7 +65,7 @@ public class TrelloConnection {
         return result.toString();
     }
 
-    List<Map<String, String>> trackAllBoards() {
+    List<Map<String, String>> trackAllBoards(){
         List<Map<String, String>> result = new ArrayList<>();
         String url = "https://api.trello.com/1/members/me/boards?key=" + key +
                 "&token=" + token;

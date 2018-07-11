@@ -1,6 +1,7 @@
 package edu.harvard.integration.Trello;
 
 import com.github.cliftonlabs.json_simple.JsonArray;
+import edu.harvard.integration.Integrator;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -49,9 +50,26 @@ public class Commons {
                 sb.append("\n");
             }
             in.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception ignored) {
+
         }
         return sb.toString();
+    }
+
+    public static String getTrelloToken(){
+        return Integrator.getConfig().getOrDefault("TRELLO_TOKEN", "trello_token");
+    }
+
+    public static String getTrelloKey(){
+        return Integrator.getConfig().getOrDefault("TRELLO_KEY", "trello_key");
+    }
+
+    public static String formatPBI(Map<String, Object> pbi){
+        String name = (String) pbi.get("name");
+        String pts = (String) pbi.get("pts");
+        String due = (String) pbi.get("due");
+        String list = (String) pbi.get("list_name");
+        return "Name: " + name + "\nStory points: " + pts + "\nBelongs to list: " +
+                list + "\nDue at: " + due + "\n\n";
     }
 }

@@ -20,14 +20,13 @@ public class TrelloIntegration implements Integration {
     private final String token;
     private final String key;
     private final String interval;
-    private boolean isConnected = false;
     private TrelloConnection conn = null;
-    static List<Map<String, String>> trelloInfo = null;
+    private static List<Map<String, String>> trelloInfo = null;
 
     public TrelloIntegration() {
         Config config = Integrator.getConfig();
-        this.token = config.getOrDefault("TRELLO_TOKEN", "trello_token");
-        this.key = config.getOrDefault("TRELLO_KEY", "trello_key");
+        this.token = Commons.getTrelloToken();
+        this.key = Commons.getTrelloKey();
         this.interval = config.getOrDefault("TRELLO_INTERVAL", "300");
         if (this.token.equals("trello_token") || this.key.equals("trello_key")) {
             Integrator.getLogger().error("Failed to load needed configs for Trello Integration");
@@ -97,8 +96,8 @@ public class TrelloIntegration implements Integration {
     /**
      * Get all PBIs no matter their status and list, given a board name.
      */
-    public List<Map<String, Object>> getAllPBIs(String boardName){
-        String boardId = BoardUtils.getBoardIdByName(this.token, this.key, boardName);
+    public static List<Map<String, Object>> getAllPBIs(String boardName, String token, String key){
+        String boardId = BoardUtils.getBoardIdByName(token, key, boardName);
         List<Map<String, Object>> cardsInfo = BoardUtils.getBoardContent(boardId);
         List<Map<String, Object>> result = new ArrayList<>();
         for(Map<String, Object> card : cardsInfo){
