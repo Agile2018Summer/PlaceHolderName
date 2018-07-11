@@ -103,6 +103,10 @@ public class TrelloIntegration implements Integration {
         for(Map<String, Object> card : cardsInfo){
             String cardId = (String) card.get("id");
             Map<String, Object> cardDetail = CardUtils.getCardContent(cardId);
+            String cardName = (String) cardDetail.get("name");
+            String[] pattern = Commons.extractPts(cardName);
+            cardDetail.put("pts", pattern[0]);
+            cardDetail.put("name", pattern[1]);
             result.add(cardDetail);
         }
         return result;
