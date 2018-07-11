@@ -7,13 +7,18 @@ import edu.harvard.integration.CommandHandler.CommandSender;
 import edu.harvard.integration.Config;
 import edu.harvard.integration.Integrator;
 import edu.harvard.integration.api.Integration;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.net.ssl.HttpsURLConnection;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -182,6 +187,25 @@ public class SlackIntegration implements Integration {
         json.put("channel", channel);
         json.put("text", message);
         ws.sendText(Jsoner.serialize(json));
+    }
+
+    public void sendFile(File file) {
+        if (!file.exists()) {
+            return;
+        }
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpPost uploadFile = new HttpPost("https://slack.com/api/files.upload?token=" + token + "&channels=" + infoChannel);
+        MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+        try {
+            builder.addBinaryBody("file", new FileInputStream(file), ContentType.APPLICATION_OCTET_STREAM, file.getName());
+            HttpEntity multipart = builder.build();
+            uploadFile.setEntity(multipart);
+            CloseableHttpResponse response = httpClient.execute(uploadFile);
+            response.close();
+            httpClient.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
