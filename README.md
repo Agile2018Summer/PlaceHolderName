@@ -140,7 +140,7 @@ https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/sprint3.
 https://github.com/Agile2018Summer/Trello-Slack-Integration/tree/master/src/test/java/edu/harvard/integration
 
 #### CI: 
-https://travis-ci.com/profile/sakuya9t
+https://travis-ci.com/Agile2018Summer/Trello-Slack-Integration
 
 #### CD/ Test Environment (set on slack):
 https://agilesoftwarecourse.slack.com/messages/CBKV5NA14/
