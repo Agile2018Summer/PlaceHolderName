@@ -26,7 +26,7 @@ Making it easier for slack groups to operate.
 
 ### Persona of Richard Kasperowski
 
-![User Persona Alt Text](https://raw.githubusercontent.com/Agile2018Summer/Trello-Slack-Integration/master/user%20persona.png)
+![User Persona Alt Text](https://raw.githubusercontent.com/Agile2018Summer/Trello-Slack-Integration/master/User%20Persona.png)
 
 User Persona can be found at https://app.xtensio.com/n0dvk7ej
 
