@@ -28,8 +28,70 @@ public class ChartHelper extends Application {
     private static List<Calendar> backlogDates = new ArrayList<>();
 
     public static void setData(Set<BacklogItem> bItems, List<Calendar> bDates) {
-        items = bItems;
+        setData(bItems, bDates, false);
+    }
+
+    public static void setData(Set<BacklogItem> bItems, List<Calendar> bDates, boolean ignoreNull) {
+        Set<BacklogItem> backlogItems = new HashSet<>();
+        Map<DateInfo, Calendar> cachedDates = new HashMap<>();
+
+        for (Calendar c : bDates) {
+            DateInfo info = new DateInfo(c);
+            if (!cachedDates.containsKey(info)) {
+                cachedDates.put(info, c);
+            }
+        }
+
+        for (BacklogItem item : bItems) {
+            Calendar c = item.getDateCompleted();
+            if (c == null) {
+                if (ignoreNull) {
+                    backlogItems.add(item);
+                }
+                continue;
+            }
+            backlogItems.add(item);
+            DateInfo info = new DateInfo(c);
+            if (cachedDates.containsKey(info)) {
+                item.setDateCompleted(cachedDates.get(info));
+            } else {
+                cachedDates.put(info, c);
+            }
+        }
+
+        items = backlogItems;
         backlogDates = bDates;
+    }
+
+    private static class DateInfo {
+        private int day, month, year;
+
+        private DateInfo(Calendar c) {
+            this(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE));
+        }
+
+        private DateInfo(int year, int month, int day) {
+            this.year = year;
+            this.month = month;
+            this.day = day;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (obj instanceof DateInfo) {
+                DateInfo other = (DateInfo) obj;
+                return year == other.year && month == other.month && day == other.day;
+            }
+            return false;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(year, month, day);
+        }
     }
 
     public static class ColumnInfo {

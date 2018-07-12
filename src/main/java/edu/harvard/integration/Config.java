@@ -48,6 +48,9 @@ public class Config extends Properties {
             if (!containsKey("TRELLO_KEY"))
                 setProperty("TRELLO_KEY", "trello_key");
 
+            if (!containsKey("DATES"))
+                setProperty("DATES", "6/25/2018,6/26/2018,6/27/2018,6/28/2018,7/2/2018,7/3/2018,7/5/2018,7/9/2018,7/10/2018,7/11/2018,7/12/2018");
+
             store(output, null);
         } catch (IOException io) {
             io.printStackTrace();

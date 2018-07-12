@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,7 +15,7 @@ import static edu.harvard.integration.Trello.BacklogColumn.*;
 public class BacklogItem {
     private String title, description;
     private BacklogColumn column;
-    private int storyPoints = 0;
+    private int storyPoints;
     private Calendar dateCompleted;
     private String list = "";
 
@@ -72,15 +73,26 @@ public class BacklogItem {
         return this.column;
     }
 
-    public boolean equals(BacklogItem another){
-        if(!this.title.equals(another.getTitle())) return false;
-        if(!this.description.equals(another.getDescription())) return false;
-        if(this.storyPoints != another.storyPoints) return false;
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (o instanceof BacklogItem) {
+            BacklogItem another = (BacklogItem) o;
+            if (!this.title.equals(another.getTitle())) return false;
+            if (!this.description.equals(another.getDescription())) return false;
+            if (this.storyPoints != another.storyPoints) return false;
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.title, this.description, this.storyPoints);
     }
 
     private Calendar convertDate(String d){
-        if(d == null || d == "") return null;
+        if(d == null || d.isEmpty()) return null;
         Pattern pattern = Pattern.compile("^[0-9]{4}-[0-9]{2}-[0-9]{2}");
         Matcher m = pattern.matcher(d);
         if(m.find()){
@@ -125,5 +137,9 @@ public class BacklogItem {
                 "\nStatus: " + this.column +
                 "\nComplete Date: " + this.dateStr() +
                 "\n\n";
+    }
+
+    public void setDateCompleted(Calendar calendar) {
+        this.dateCompleted = calendar;
     }
 }
