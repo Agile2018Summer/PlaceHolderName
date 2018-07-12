@@ -150,3 +150,6 @@ https://travis-ci.com/Agile2018Summer/Trello-Slack-Integration
 
 #### CD/ Test Environment (set on slack):
 https://agilesoftwarecourse.slack.com/messages/CBKV5NA14/
+
+#### Future Plan
+https://docs.google.com/document/d/121a0y1VhwgcHFms8OdR3AZ2dBVvzE5gObkGFSzsv1Gc/edit?usp=sharing
