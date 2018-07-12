@@ -1,12 +1,13 @@
 package edu.harvard.integration.CommandHandler.Commands;
 
 import edu.harvard.integration.CommandHandler.CommandSender;
-import edu.harvard.integration.Integrator;
-import edu.harvard.integration.Trello.*;
+import edu.harvard.integration.Trello.BacklogItem;
+import edu.harvard.integration.Trello.BoardUtils;
+import edu.harvard.integration.Trello.Commons;
+import edu.harvard.integration.Trello.ListUtils;
 import edu.harvard.integration.api.Cmd;
 
 import javax.annotation.Nonnull;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 

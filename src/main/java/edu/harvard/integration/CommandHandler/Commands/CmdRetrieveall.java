@@ -1,7 +1,6 @@
 package edu.harvard.integration.CommandHandler.Commands;
 
 import edu.harvard.integration.CommandHandler.CommandSender;
-import edu.harvard.integration.Integrator;
 import edu.harvard.integration.Trello.BacklogItem;
 import edu.harvard.integration.Trello.Commons;
 import edu.harvard.integration.Trello.TrelloIntegration;
@@ -9,7 +8,6 @@ import edu.harvard.integration.api.Cmd;
 
 import javax.annotation.Nonnull;
 import java.util.List;
-import java.util.Map;
 
 public class CmdRetrieveall implements Cmd {
     @Override
