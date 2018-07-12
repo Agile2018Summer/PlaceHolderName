@@ -36,8 +36,11 @@ public class BacklogItem {
 
     public BacklogItem(Map<String, Object> map){
         this.title = (String) map.get("name");
+        if(this.title == null) this.title = "";
         this.column = this.convertList((String) map.get("list_name"));
+        if(this.column == null) this.column = UNKNOWN;
         this.list = (String) map.get("list_name");
+        if(this.list == null) this.list = "";
         this.dateCompleted = this.convertDate((String) map.get("due"));
         this.description = (String) map.get("desc");
         if(map.get("pts") != null) this.storyPoints = Integer.parseInt((String) map.get("pts"));
@@ -55,7 +58,11 @@ public class BacklogItem {
         if(this.title == null) return "";
         return this.title;
     }
-    public void setTitle(String title){this.title = title;}
+
+    public void setTitle(String title) {
+        if (title == null) this.title = "";
+        else this.title = title;
+    }
 
     @Nullable
     public String getDescription() {
@@ -74,8 +81,11 @@ public class BacklogItem {
 
     public boolean equals(BacklogItem another){
         if(!this.title.equals(another.getTitle())) return false;
+        if(this.description == null && another.getDescription() != null) return false;
+        if(another.description == null && this.getDescription() != null) return false;
         if(!this.description.equals(another.getDescription())) return false;
-        if(this.storyPoints != another.storyPoints) return false;
+        if(this.storyPoints != another.getStoryPoints()) return false;
+        if(this.column != another.getColumn()) return false;
         return true;
     }
 

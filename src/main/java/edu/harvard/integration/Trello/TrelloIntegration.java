@@ -31,7 +31,7 @@ public class TrelloIntegration implements Integration {
         }
         if (connect()){
             Integrator.getLogger().info("Connected to Trello.");
-            //this.StartListen(Integer.parseInt(this.interval));
+            this.StartListen(Integer.parseInt(this.interval));
         }
         else
             Integrator.getLogger().error("Failed to connect to Trello.");
@@ -43,7 +43,7 @@ public class TrelloIntegration implements Integration {
         this.interval = "300";
         if (connect()){
             System.out.println("Connected to Trello.");
-            //this.StartListen(Integer.parseInt(this.interval));
+            this.StartListen(Integer.parseInt(this.interval));
         }
         else
             System.out.println("Failed to connect to Trello.");
@@ -115,25 +115,33 @@ public class TrelloIntegration implements Integration {
         class ParseTask implements Callable<String> {
             public String call() throws Exception {
                 while(true){
-                    Map<String, Object> old = new HashMap<>(cache);
+                    Integrator.getLogger().info("Listener task cycle started.");
+                    Map<String, Object> old = new HashMap<>();
+                    old.putAll(cache);
                     cache = getAllTrelloBoards(token, key);
                     for(Map.Entry<String, Object> entry : old.entrySet()){
                         String key = entry.getKey();
-                        if(!cache.containsKey("key")){
+                        if(!cache.containsKey(key)){
                             send("Trello information refreshed: \n" +
                                     "Board " + key + "is deleted or renamed.");
                         }
                         else{
-                            List<BacklogItem> newitems = (List<BacklogItem>) cache.get(key);
-                            List<BacklogItem> olditems = (List<BacklogItem>) cache.get(key);
-                            for(BacklogItem olditem : olditems){
-                                for(BacklogItem newitem : newitems){
-                                    if(olditem.equals(newitem)) break;
+                            List<BacklogItem> new_items = (List<BacklogItem>) cache.get(key);
+                            List<BacklogItem> old_items = (List<BacklogItem>) cache.get(key);
+                            for(BacklogItem oItem : old_items){
+                                boolean b = false;
+                                for(BacklogItem nItem : new_items){
+                                    b = oItem.equals(nItem);
+                                    if(b) break;
+                                }
+                                if(!b){
+                                    send("Trello information refreshed: \n" +
+                                            "Card " + oItem.getTitle() + "is modified.");
                                 }
                             }
                         }
                     }
-
+                    Integrator.getLogger().info("Listener task cycle ended.");
                     Thread.sleep(interval * 1000);
                 }
             }
