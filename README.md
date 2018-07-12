@@ -121,6 +121,12 @@ Who to improve:
 
 ## Project 4: Third Sprint
 
+#### Forecast of how many story points can be delivered within a sprint 
+9.
+
+#### Rational behind it 
+Average value of last two sprints.
+
 #### Test Environment (set on slack):
 https://agilesoftwarecourse.slack.com/messages/CBKV5NA14/
 #### CI: 
