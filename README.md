@@ -1,23 +1,4 @@
 # Team Name: Sprinters
-
-# Product: Trello - Slack Integrator
-
-## Team Roster
-
-Team Member | Role(s) on Team
------------- | -------------
-Raghavan Arvindh |Product Owner, Development Team Member
-Vishnu Vijay Singh | Scrum Master, Development Team Member
-Richard Freimer |  Development Team Member
-Zijian Wang | Development Team Member
-Omar Alotaishan | Development Team Member
-
-
-## Far Vision
-
-Making the communication for development teams easier.
-
-# Team Name: Sprinters
 # Product: Trello - Slack Integrator
 ## Team Roster
 Team Member | Role(s) on Team
