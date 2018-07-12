@@ -3,6 +3,12 @@ package edu.harvard.integration.Trello;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Calendar;
+import java.util.Map;
+
+import static edu.harvard.integration.Trello.BacklogColumn.BACKLOG;
+import static edu.harvard.integration.Trello.BacklogColumn.DONE;
+import static edu.harvard.integration.Trello.BacklogColumn.IN_PROGRESS;
+
 
 public class BacklogItem {
     private String title, description;
@@ -24,6 +30,14 @@ public class BacklogItem {
         this.description = description;
         this.dateCompleted = dateCompleted;
         this.column = column;
+    }
+
+    public BacklogItem(Map<String, Object> map){
+        this.title = (String) map.get("name");
+        this.column = this.convertList((String) map.get("list_name"));
+        this.dateCompleted = this.convertDate((String) map.get("due"));
+        this.description = (String) map.get("desc");
+        this.storyPoints = Integer.parseInt((String) map.get("pts"));
     }
 
     public int getStoryPoints() {
@@ -48,5 +62,24 @@ public class BacklogItem {
     @Nonnull
     public BacklogColumn getColumn() {
         return this.column;
+    }
+
+    public boolean equals(BacklogItem another){
+        if(!this.title.equals(another.getTitle())) return false;
+        if(!this.description.equals(another.getDescription())) return false;
+        if(this.storyPoints != another.storyPoints) return false;
+        return true;
+    }
+
+    private Calendar convertDate(String d){
+
+        return null;
+    }
+
+    private BacklogColumn convertList(String list){
+        String s = list.toLowerCase();
+        if(s.contains("done")) return DONE;
+        if(s.contains("progress")) return IN_PROGRESS;
+        return BACKLOG;
     }
 }
