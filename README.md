@@ -127,6 +127,15 @@ Who to improve:
 #### Rational behind it 
 Average value of last two sprints.
 
+#### Sprint backlog
+https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/4
+
+#### Daily Scrum Report
+https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/DailyScrum180712.md
+
+#### Unit tests folder
+https://github.com/Agile2018Summer/Trello-Slack-Integration/tree/master/src/test/java/edu/harvard/integration
+
 #### Test Environment (set on slack):
 https://agilesoftwarecourse.slack.com/messages/CBKV5NA14/
 #### CI: 
