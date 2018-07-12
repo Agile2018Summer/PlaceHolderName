@@ -136,8 +136,14 @@ https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/DailyScr
 #### Burn Down Chart
 https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/sprint3.png
 
-#### Unit tests folder
+#### Unit tests
 https://github.com/Agile2018Summer/Trello-Slack-Integration/tree/master/src/test/java/edu/harvard/integration
+https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/src/test/java/s3t1.png
+https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/src/test/java/s3t2.png
+https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/src/test/java/s3t3.png
+https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/src/test/java/s3t4.png
+https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/src/test/java/s3t5.png
+https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/src/test/java/s3t6.png
 
 #### CI: 
 https://travis-ci.com/Agile2018Summer/Trello-Slack-Integration
