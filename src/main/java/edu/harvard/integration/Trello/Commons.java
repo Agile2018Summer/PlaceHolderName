@@ -21,8 +21,10 @@ public class Commons {
             Map<String, Object> map = new HashMap<String, Object>();
             String name = (String) item.get("name");
             String[] pattern = Commons.extractPts(name);
-            map.put("pts", pattern[0]);
-            map.put("name", pattern[1]);
+            if(pattern != null){
+                map.put("pts", pattern[0]);
+                map.put("name", pattern[1]);
+            }
             map.put("id", item.get("id"));
             res.add(map);
         }
@@ -30,6 +32,7 @@ public class Commons {
     }
 
     public static String[] extractPts(String name){
+        if(name == null || name.equals("")) return null;
         Pattern pattern = Pattern.compile("^\\([0-9]+\\)");
         Matcher matcher = pattern.matcher(name);
         String pts = "";
@@ -86,8 +89,10 @@ public class Commons {
             BacklogItem cardDetail = CardUtils.getCardContent(cardId);
             String cardName = cardDetail.getTitle();
             String[] pattern = Commons.extractPts(cardName);
-            cardDetail.setStoryPoints(pattern[0]);
-            cardDetail.setTitle(pattern[1]);
+            if(pattern != null){
+                cardDetail.setStoryPoints(pattern[0]);
+                cardDetail.setTitle(pattern[1]);
+            }
             result.add(cardDetail);
         }
         return result;

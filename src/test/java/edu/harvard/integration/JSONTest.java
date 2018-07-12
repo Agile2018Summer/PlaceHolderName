@@ -23,4 +23,12 @@ public class JSONTest {
         System.out.println(arr);
         assertEquals(input, JSONHandler.List2Json(arr));
     }
+
+    @Test
+    public void testConvertList3(){
+        String input = "[]";
+        JsonArray arr = (JsonArray) JSONHandler.Json2Map(input);
+        System.out.println(arr);
+        assertEquals(input, JSONHandler.List2Json(arr));
+    }
 }

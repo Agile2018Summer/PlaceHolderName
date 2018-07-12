@@ -21,7 +21,7 @@ public class TrelloIntegration implements Integration {
     private final String key;
     private final String interval;
     private TrelloConnection conn = null;
-    private static List<Map<String, String>> trelloInfo = null;
+    private static Map<String, Object> cache = new HashMap<>();
 
     public TrelloIntegration() {
         Config config = Integrator.getConfig();
@@ -72,8 +72,15 @@ public class TrelloIntegration implements Integration {
     /**
      * Get names of all Trello boards bound to current user.
     * */
-    public List<Map<String, String>> getAllTrelloBoards(){
-        return this.conn.trackAllBoards();
+    public Map<String, Object> getAllTrelloBoards(String token, String key){
+        Map<String, Object> result = new HashMap<>();
+        List<Map<String, String>> boards = this.conn.trackAllBoards();
+        for(Map<String, String> board : boards){
+            String boardName = board.get("name");
+            List<BacklogItem> pbis = TrelloIntegration.getAllPBIs(boardName, token, key);
+            result.put(boardName, pbis);
+        }
+        return result;
     }
 
     /**
@@ -111,8 +118,8 @@ public class TrelloIntegration implements Integration {
         class ParseTask implements Callable<String> {
             public String call() throws Exception {
                 while(true){
-                    List<Map<String, String>> oldInfo = new ArrayList<>(trelloInfo);
-                    trelloInfo = getAllTrelloBoards();
+                    Map<String, Object> oldInfo = new HashMap<>(cache);
+                    cache = getAllTrelloBoards(token, key);
                     Thread.sleep(interval * 1000);
                 }
             }

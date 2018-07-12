@@ -8,9 +8,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static edu.harvard.integration.Trello.BacklogColumn.BACKLOG;
-import static edu.harvard.integration.Trello.BacklogColumn.DONE;
-import static edu.harvard.integration.Trello.BacklogColumn.IN_PROGRESS;
+import static edu.harvard.integration.Trello.BacklogColumn.*;
 
 
 public class BacklogItem {
@@ -54,6 +52,7 @@ public class BacklogItem {
 
     @Nonnull
     public String getTitle() {
+        if(this.title == null) return "";
         return this.title;
     }
     public void setTitle(String title){this.title = title;}
@@ -102,6 +101,7 @@ public class BacklogItem {
     }
 
     private BacklogColumn convertList(String list){
+        if(list == null) return UNKNOWN;
         String s = list.toLowerCase();
         if(s.contains("done")) return DONE;
         if(s.contains("progress")) return IN_PROGRESS;

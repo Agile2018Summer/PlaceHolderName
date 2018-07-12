@@ -133,4 +133,11 @@ public class TrelloConnectTest {
                         "Harvard CSCI S-71 Course Backlog");
         assertEquals("58cec57600cd9fee6e35bad9", boardId);
     }
+
+    @Test
+    public void testGetAllTrelloBoards(){
+        TrelloIntegration g = new TrelloIntegration(key, token);
+        Map<String, Object> info = g.getAllTrelloBoards(token, key);
+        System.out.println(info);
+    }
 }

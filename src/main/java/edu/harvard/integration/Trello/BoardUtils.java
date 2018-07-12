@@ -1,6 +1,7 @@
 package edu.harvard.integration.Trello;
 
 import com.github.cliftonlabs.json_simple.JsonArray;
+import com.github.cliftonlabs.json_simple.JsonObject;
 import edu.harvard.integration.JSONHandler;
 
 import java.util.List;
@@ -18,9 +19,16 @@ public class BoardUtils {
     public static List<Map<String, Object>> getBoardContent(String id) {
         String url = "https://api.trello.com/1/boards/" + id + "/cards";
         String resp = Commons.getPageSource(url);
-        JsonArray list = (JsonArray) JSONHandler.Json2Map(resp);
-        List<Map<String, Object>> res = Commons.getInfo(list);
-        return res;
+        Object o = JSONHandler.Json2Map(resp);
+        if(o instanceof JsonArray) {
+            return Commons.getInfo((JsonArray) o);
+        }
+        else if(o instanceof JsonObject) {
+            JsonArray arr = new JsonArray();
+            arr.add(o);
+            return Commons.getInfo(arr);
+        }
+        return null;
     }
 
     public static List<Map<String, Object>> getBoardLists(String id){
