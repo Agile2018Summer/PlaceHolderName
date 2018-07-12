@@ -11,24 +11,6 @@ Omar Alotaishan | Development Team Member
 ## Far Vision
 Making the communication for development teams easier.
 ## Near Vision
-Making it easier for slack groups to operate.
-## Stakeholders
-- Professors (Teaching classes in the field of agile)
-- Scrum Teams in software companies (Ex. Product Owner, Scrum Master, Development team members)
-- Students in an Agile Course
-- Managers in miscellaneous organizations who hope to employ agile practices to their projects.
------
-## Real Stakeholder: Richard Kasperowski
-### Persona of Richard Kasperowski
-![User Persona Alt Text](https://raw.githubusercontent.com/Agile2018Summer/Trello-Slack-Integration/master/user%20persona.png)
-User Persona can be found at https://app.xtensio.com/n0dvk7ej
------
-## [Product Backlog](https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/1)
------
-## Backlog order reasoning
-The project backlog is ordered in such a way that it should minimize the additional work needed when addressing the PBIs that have a lower priority.
-
-## Near Vision
 
 Making it easier for slack groups to operate.
 
