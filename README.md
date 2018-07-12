@@ -133,6 +133,9 @@ https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/4
 #### Daily Scrum Report
 https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/DailyScrum180712.md
 
+#### Burn Down Chart
+https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/sprint3.png
+
 #### Unit tests folder
 https://github.com/Agile2018Summer/Trello-Slack-Integration/tree/master/src/test/java/edu/harvard/integration
 
