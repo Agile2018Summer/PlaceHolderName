@@ -3,8 +3,8 @@
 ## Team Roster
 Team Member | Role(s) on Team
 ------------ | -------------
-Raghavan Arvindh |Product Owner, Development Team Member
-Vishnu Vijay Singh | Scrum Master, Development Team Member
+Raghavan Arvindh |Product Owner
+Vishnu Vijay Singh | Scrum Master
 Richard Freimer |  Development Team Member
 Zijian Wang | Development Team Member
 Omar Alotaishan | Development Team Member
