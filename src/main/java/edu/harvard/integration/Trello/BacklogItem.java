@@ -88,17 +88,6 @@ public class BacklogItem {
         if(this.storyPoints != another.getStoryPoints()) return false;
         if(this.column != another.getColumn()) return false;
         return true;
-    @Override
-    public boolean equals(Object o) {
-        if (o == this) return true;
-        if (o instanceof BacklogItem) {
-            BacklogItem another = (BacklogItem) o;
-            if (!this.title.equals(another.getTitle())) return false;
-            if (!this.description.equals(another.getDescription())) return false;
-            if (this.storyPoints != another.storyPoints) return false;
-            return true;
-        }
-        return false;
     }
 
     @Override
