@@ -1,6 +1,8 @@
 package edu.harvard.integration.CommandHandler.Commands;
 
 import edu.harvard.integration.CommandHandler.CommandSender;
+import edu.harvard.integration.Integrator;
+import edu.harvard.integration.Trello.BacklogItem;
 import edu.harvard.integration.Trello.Commons;
 import edu.harvard.integration.Trello.TrelloIntegration;
 import edu.harvard.integration.api.Cmd;
@@ -19,11 +21,11 @@ public class CmdRetrieveall implements Cmd {
         String boardName = Commons.concatArr(args);
         boardName = boardName.replace("@@", "");
         try{
-            List<Map<String, Object>> pbis =
+            List<BacklogItem> pbis =
                     TrelloIntegration.getAllPBIs(boardName, Commons.getTrelloToken(), Commons.getTrelloKey());
             StringBuilder output = new StringBuilder();
-            for(Map pbi : pbis) {
-                output.append(Commons.formatPBI(pbi));
+            for(BacklogItem pbi : pbis) {
+                output.append(pbi.toSimpleString());
             }
             sender.sendMessage(output.toString());
         }

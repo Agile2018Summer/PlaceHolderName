@@ -96,10 +96,10 @@ public class TrelloIntegration implements Integration {
     /**
      * Get all PBIs no matter their status and list, given a board name.
      */
-    public static List<Map<String, Object>> getAllPBIs(String boardName, String token, String key){
+    public static List<BacklogItem> getAllPBIs(String boardName, String token, String key){
         String boardId = BoardUtils.getBoardIdByName(token, key, boardName);
         List<Map<String, Object>> cardsInfo = BoardUtils.getBoardContent(boardId);
-        List<Map<String, Object>> result = Commons.getCardsDetails(cardsInfo);
+        List<BacklogItem> result = Commons.getCardsDetails(cardsInfo);
         return result;
     }
 

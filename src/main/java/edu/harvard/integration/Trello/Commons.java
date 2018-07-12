@@ -69,15 +69,6 @@ public class Commons {
         return Integrator.getConfig().getOrDefault("TRELLO_KEY", "trello_key");
     }
 
-    public static String formatPBI(Map<String, Object> pbi){
-        String name = (String) pbi.get("name");
-        String pts = (String) pbi.get("pts");
-        String due = (String) pbi.get("due");
-        String list = (String) pbi.get("list_name");
-        return "Name: " + name + "\nStory points: " + pts + "\nBelongs to list: " +
-                list + "\nDue at: " + due + "\n\n";
-    }
-
     public static String concatArr(String[] arr){
         if(arr.length == 0) return "";
         StringBuilder sb = new StringBuilder();
@@ -85,19 +76,18 @@ public class Commons {
             sb.append(s);
             sb.append(' ');
         }
-        sb.deleteCharAt(sb.length() - 1);
-        return sb.toString();
+        return sb.toString().trim();
     }
 
-    public static List<Map<String, Object>> getCardsDetails(List<Map<String, Object>> cardsInfo){
-        List<Map<String, Object>> result = new ArrayList<>();
+    public static List<BacklogItem> getCardsDetails(List<Map<String, Object>> cardsInfo){
+        List<BacklogItem> result = new ArrayList<>();
         for(Map<String, Object> card : cardsInfo){
             String cardId = (String) card.get("id");
-            Map<String, Object> cardDetail = CardUtils.getCardContent(cardId);
-            String cardName = (String) cardDetail.get("name");
+            BacklogItem cardDetail = CardUtils.getCardContent(cardId);
+            String cardName = cardDetail.getTitle();
             String[] pattern = Commons.extractPts(cardName);
-            cardDetail.put("pts", pattern[0]);
-            cardDetail.put("name", pattern[1]);
+            cardDetail.setStoryPoints(pattern[0]);
+            cardDetail.setTitle(pattern[1]);
             result.add(cardDetail);
         }
         return result;

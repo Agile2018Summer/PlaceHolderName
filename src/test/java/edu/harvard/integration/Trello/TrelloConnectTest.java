@@ -59,8 +59,8 @@ public class TrelloConnectTest {
     @Test
     public void getCardContentTest(){
         String id = "58cec57700cd9fee6e35baf7";
-        Map<String, Object> res = CardUtils.getCardContent(id);
-        System.out.println(res);
+        BacklogItem res = CardUtils.getCardContent(id);
+        System.out.println(res.toString());
     }
 
     @Test
@@ -90,7 +90,7 @@ public class TrelloConnectTest {
     @Test
     public void testGetAllPBIs(){
         TrelloIntegration g = new TrelloIntegration(key, token);
-        List<Map<String, Object>> res = g.getAllPBIs("Harvard CSCI S-71 Course Backlog", token, key);
+        List<BacklogItem> res = g.getAllPBIs("Harvard CSCI S-71 Course Backlog", token, key);
         System.out.println(res.get(0).toString());
         assertEquals(res.size(), 24);
     }

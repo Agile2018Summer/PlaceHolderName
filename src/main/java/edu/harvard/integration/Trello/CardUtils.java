@@ -8,13 +8,19 @@ import java.util.Map;
 
 public class CardUtils {
 
-    public static Map<String, Object> getCardContent(String id) {
+    private static Map<String, Object> getCardContentMap(String id) {
         String url = "https://api.trello.com/1/cards/" + id + "?fields=all";
         String resp = Commons.getPageSource(url);
         JsonObject res = (JsonObject) JSONHandler.Json2Map(resp);
         Map<String, Object> cardInfo = filterInfo(res);
         cardInfo.put("list_name", CardUtils.getListNameByCard(id));
         return cardInfo;
+    }
+
+    public static BacklogItem getCardContent(String id){
+        Map<String, Object> item = getCardContentMap(id);
+        BacklogItem bkitem = new BacklogItem(item);
+        return bkitem;
     }
 
     private static Map<String, Object> filterInfo(Map<String, Object> cardItem){

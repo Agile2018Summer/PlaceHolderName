@@ -2,10 +2,7 @@ package edu.harvard.integration.CommandHandler.Commands;
 
 import edu.harvard.integration.CommandHandler.CommandSender;
 import edu.harvard.integration.Integrator;
-import edu.harvard.integration.Trello.BoardUtils;
-import edu.harvard.integration.Trello.CardUtils;
-import edu.harvard.integration.Trello.Commons;
-import edu.harvard.integration.Trello.ListUtils;
+import edu.harvard.integration.Trello.*;
 import edu.harvard.integration.api.Cmd;
 
 import javax.annotation.Nonnull;
@@ -30,9 +27,9 @@ public class CmdRetriveByList implements Cmd {
             String listId = ListUtils.getListIdByName(boardId, listName);
             List<Map<String, Object>> cardsInfo = ListUtils.getListContent(listId);
             StringBuilder output = new StringBuilder();
-            List<Map<String, Object>> pbis = Commons.getCardsDetails(cardsInfo);
-            for (Map pbi : pbis) {
-                output.append(Commons.formatPBI(pbi));
+            List<BacklogItem> pbis = Commons.getCardsDetails(cardsInfo);
+            for (BacklogItem pbi : pbis) {
+                output.append(pbi.toSimpleString());
             }
             sender.sendMessage(output.toString());
         }catch (Exception e){
