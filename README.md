@@ -17,106 +17,35 @@ Omar Alotaishan | Development Team Member
 
 Making the communication for development teams easier.
 
-1
 # Team Name: Sprinters
-2
-​
-3
 # Product: Trello - Slack Integrator
-4
-​
-5
 ## Team Roster
-6
-​
-7
 Team Member | Role(s) on Team
-8
 ------------ | -------------
-9
 Raghavan Arvindh |Product Owner, Development Team Member
-10
 Vishnu Vijay Singh | Scrum Master, Development Team Member
-11
 Richard Freimer |  Development Team Member
-12
 Zijian Wang | Development Team Member
-13
 Omar Alotaishan | Development Team Member
-14
-​
-15
-​
-16
 ## Far Vision
-17
-​
-18
 Making the communication for development teams easier.
-19
-​
-20
 ## Near Vision
-21
-​
-22
 Making it easier for slack groups to operate.
-23
-​
-24
 ## Stakeholders
-25
-​
-26
 - Professors (Teaching classes in the field of agile)
-27
 - Scrum Teams in software companies (Ex. Product Owner, Scrum Master, Development team members)
-28
 - Students in an Agile Course
-29
 - Managers in miscellaneous organizations who hope to employ agile practices to their projects.
-30
-​
-31
 -----
-32
 ## Real Stakeholder: Richard Kasperowski
-33
-​
-34
 ### Persona of Richard Kasperowski
-35
-​
-36
 ![User Persona Alt Text](https://raw.githubusercontent.com/Agile2018Summer/Trello-Slack-Integration/master/user%20persona.png)
-37
-​
-38
 User Persona can be found at https://app.xtensio.com/n0dvk7ej
-39
-​
-40
 -----
-41
-​
-42
 ## [Product Backlog](https://github.com/Agile2018Summer/Trello-Slack-Integration/projects/1)
-43
-​
-44
 -----
-45
-​
-46
 ## Backlog order reasoning
-47
-​
-48
 The project backlog is ordered in such a way that it should minimize the additional work needed when addressing the PBIs that have a lower priority.
-49
-​
-50
-​
 
 ## Near Vision
 
