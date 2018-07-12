@@ -139,7 +139,8 @@ https://github.com/Agile2018Summer/Trello-Slack-Integration/blob/master/sprint3.
 #### Unit tests folder
 https://github.com/Agile2018Summer/Trello-Slack-Integration/tree/master/src/test/java/edu/harvard/integration
 
-#### Test Environment (set on slack):
-https://agilesoftwarecourse.slack.com/messages/CBKV5NA14/
 #### CI: 
 https://travis-ci.com/profile/sakuya9t
+
+#### CD/ Test Environment (set on slack):
+https://agilesoftwarecourse.slack.com/messages/CBKV5NA14/
