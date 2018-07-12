@@ -4,10 +4,7 @@ import edu.harvard.integration.Config;
 import edu.harvard.integration.Integrator;
 import edu.harvard.integration.api.Integration;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -118,10 +115,31 @@ public class TrelloIntegration implements Integration {
         class ParseTask implements Callable<String> {
             public String call() throws Exception {
                 while(true){
-                    Map<String, Object> oldInfo = new HashMap<>(cache);
+                    Map<String, Object> old = new HashMap<>(cache);
                     cache = getAllTrelloBoards(token, key);
+                    for(Map.Entry<String, Object> entry : old.entrySet()){
+                        String key = entry.getKey();
+                        if(!cache.containsKey("key")){
+                            send("Trello information refreshed: \n" +
+                                    "Board " + key + "is deleted or renamed.");
+                        }
+                        else{
+                            List<BacklogItem> newitems = (List<BacklogItem>) cache.get(key);
+                            List<BacklogItem> olditems = (List<BacklogItem>) cache.get(key);
+                            for(BacklogItem olditem : olditems){
+                                for(BacklogItem newitem : newitems){
+                                    if(olditem.equals(newitem)) break;
+                                }
+                            }
+                        }
+                    }
+
                     Thread.sleep(interval * 1000);
                 }
+            }
+
+            private void send(String s){
+                Integrator.getSlack().sendMessage(s, Integrator.getSlack().getInfoChannel());
             }
         }
         ParseTask task = new ParseTask();
